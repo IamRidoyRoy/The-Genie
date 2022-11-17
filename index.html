@@ -19,23 +19,24 @@
     <section id="monster" class="container">
       <h2>Genie Health</h2>
       <div class="healthbar">
-        <div class="healthbar__value"></div>
+        <div class="healthbar__value" :style="genieBarStyles"></div>
       </div>
     </section>
     <section id="player" class="container">
       <h2>Your Health</h2>
       <div class="healthbar">
-        <div class="healthbar__value"></div>
+        <div class="healthbar__value" :style="playerBarStyles"></div>
       </div>
     </section>
     <section id="controls">
-      <button>ATTACK</button>
+      <button @click="attackGenie">ATTACK</button>
       <button>SUPPER ATTACK</button>
       <button>HEAL</button>
       <button>SURRENDER</button>
     </section>
     <section id="log" class="container">
       <h2>Battle Log</h2>
+      <h2> {{newTest}} </h2>
       <ul></ul>
     </section>
   </div>

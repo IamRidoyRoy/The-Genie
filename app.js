@@ -1,28 +1,36 @@
-
-function getRandomValue(max, min) {
-    return Math.floor(Math.random) * (max - min) + min;
+function getRandomValue(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
 }
-const test = getRandomValue(15, 8);
-console.log(test)
 
 const app = Vue.createApp({
     data() {
-        genieHealth = 100,
-            myHealth = 100
+        return {
+            playerHealth: 100,
+            monsterHealth: 100,
+
+        };
+    },
+    computed: {
+        genieBarStyles() {
+            return { width: this.monsterHealth + '%' };
+        },
+        playerBarStyles() {
+            return { width: this.playerHealth + '%' };
+        },
+
     },
     methods: {
         attackGenie() {
-            const attackValue = getRandomValue(12, 5);
-            this.genieHealth -= attackValue;
+            const attackValue = getRandomValue(5, 12);
+            this.monsterHealth -= attackValue;
             this.attackPlayer();
         },
-
         attackPlayer() {
-            const attackMe = getRandomValue(15, 8);
-            this.myHealth -= attackMe;
-        }
+            const attackValue = getRandomValue(8, 15);
+            this.playerHealth -= attackValue;
+        },
 
-    }
-})
+    },
+});
 
 app.mount('#game');
