@@ -35,18 +35,11 @@ const app = Vue.createApp({
             const attackValue = getRandomValue(5, 12);
             this.monsterHealth -= attackValue;
             this.attackPlayer();
-            // if (this.monsterHealth < 0) {
-            //     alert('The player is the Winner!')
-            // }
 
         },
         attackPlayer() {
             const attackValue = getRandomValue(8, 15);
             this.playerHealth -= attackValue;
-            // if (this.playerHealth < 0) {
-            //     alert('The Genie is the Winner!')
-            // }
-
         },
         supperAttack() {
             this.currentRound++;
@@ -54,6 +47,7 @@ const app = Vue.createApp({
             this.monsterHealth -= attackValue;
             this.attackPlayer();
         },
+
         healPlayer() {
             this.currentRound++;
             const healValue = getRandomValue(12, 15)
@@ -66,6 +60,12 @@ const app = Vue.createApp({
                 this.playerHealth += healValue;
             }
             this.attackPlayer();
+        },
+        newGameStart() {
+            this.monsterHealth = 100;
+            this.playerHealth = 100;
+            this.winner = null;
+            this.currentRound = 0;
         }
 
     },
