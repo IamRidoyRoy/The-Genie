@@ -28,10 +28,18 @@ const app = Vue.createApp({
             const attackValue = getRandomValue(5, 12);
             this.monsterHealth -= attackValue;
             this.attackPlayer();
+            if (this.monsterHealth < 0) {
+                alert('The player is the Winner!')
+            }
+
         },
         attackPlayer() {
             const attackValue = getRandomValue(8, 15);
             this.playerHealth -= attackValue;
+            if (this.playerHealth < 0) {
+                alert('The Genie is the Winner!')
+            }
+
         },
         supperAttack() {
             this.currentRound++;
@@ -42,16 +50,16 @@ const app = Vue.createApp({
         healPlayer() {
             this.currentRound++;
             const healValue = getRandomValue(12, 15)
+            console.log(healValue);
             if (this.playerHealth + healValue >= 100) {
                 this.playerHealth = 100;
-                alert("Your health is alreay 100% Saved!")
+                alert("Your health is already 100% Saved!")
             }
             else {
                 this.playerHealth += healValue;
             }
             this.attackPlayer();
-        }
-
+        },
     },
 });
 
