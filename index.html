@@ -38,11 +38,11 @@
       <button @click="newGameStart">Start New Game!</button>
     </section>
 
-    <section id="controls">
+    <section id="controls" v-if="!winner">
       <button @click="attackMonster">ATTACK</button>
       <button :disabled="disabledSupperAttack" @click="supperAttack">SUPPER ATTACK</button>
       <button @click="healPlayer">HEAL</button>
-      <button>SURRENDER</button>
+      <button @click="surrender()">SURRENDER</button>
     </section>
     <section id="log" class="container">
       <h2>I will add a battle log here!</h2>
