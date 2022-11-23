@@ -70,7 +70,6 @@ const app = Vue.createApp({
 
     },
 
-
     computed: {
         genieBarStyles() {
             if (this.monsterHealth < 0) {
